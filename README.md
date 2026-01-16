@@ -25,8 +25,8 @@ StockMate is designed to help businesses manage their inventory efficiently with
 
 1. Clone the repository
     ```bash
-   git clone git@github.com:lz13/stockmate.git
-   cd stockmate
+    git clone git@github.com:lz13/stockmate.git
+    cd stockmate
     ```
    
 2. Install dependencies
@@ -103,8 +103,12 @@ This project uses:
 
 ## Deployment
 
-Instructions for deploying will go here.
+Deployment steps will vary depending on your hosting provider (e.g., Render, Heroku, Fly.io, or a VPS). A typical production deployment involves:
 
+1. Configure environment variables (database URL, `RAILS_MASTER_KEY`, `SECRET_KEY_BASE`, mailer settings, etc.) and set `RAILS_ENV=production`.
+2. Ensure the production database is available and run migrations:
+   ```bash
+   bin/rails db:migrate RAILS_ENV=production
 ## Contributing
 1. Create a feature/fix branch from `develop`
 2. Make your changes
@@ -112,4 +116,4 @@ Instructions for deploying will go here.
 4. Create a pull request to `develop`
 
 ## License
-[Specify your license here]
+This project is not currently licensed for public use. All rights reserved.
