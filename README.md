@@ -25,8 +25,8 @@ StockMate is designed to help businesses manage their inventory efficiently with
 
 1. Clone the repository
     ```bash
-   git clone git@github.com:lz13/stockmate.git
-   cd stockmate
+    git clone git@github.com:lz13/stockmate.git
+    cd stockmate
     ```
    
 2. Install dependencies
