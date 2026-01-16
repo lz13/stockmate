@@ -103,8 +103,12 @@ This project uses:
 
 ## Deployment
 
-Instructions for deploying will go here.
+Deployment steps will vary depending on your hosting provider (e.g., Render, Heroku, Fly.io, or a VPS). A typical production deployment involves:
 
+1. Configure environment variables (database URL, `RAILS_MASTER_KEY`, `SECRET_KEY_BASE`, mailer settings, etc.) and set `RAILS_ENV=production`.
+2. Ensure the production database is available and run migrations:
+   ```bash
+   bin/rails db:migrate RAILS_ENV=production
 ## Contributing
 1. Create a feature/fix branch from `develop`
 2. Make your changes
