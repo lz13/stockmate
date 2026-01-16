@@ -112,4 +112,4 @@ Instructions for deploying will go here.
 4. Create a pull request to `develop`
 
 ## License
-[Specify your license here]
+This project is not currently licensed for public use. All rights reserved.
