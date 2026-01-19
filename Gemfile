@@ -59,10 +59,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 group :development, :test do
   gem "rspec-rails"
   gem "awesome_print"
-  gem "database_cleaner-active_record"
+  gem "factory_bot_rails"
 end
