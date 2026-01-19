@@ -7,28 +7,36 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
 
-    it 'validates email format' do
-      user.email = 'invalid_email'
+    context 'when validation email' do
+      it 'validates email format' do
+        user.email = 'invalid_email'
 
-      expect(user).not_to be_valid
-      expect(user.errors[:email]).to include('is invalid')
-    end
-
-    it 'accepts valid email format' do
-      valid_emails = %w[user@example.com test@userdomain.co.uk user+tag@example.org]
-
-      valid_emails.each do |email|
-        user.email = email
-        expect(user).to be_valid, "#{email.inspect} should be valid"
+        expect(user).not_to be_valid
       end
-    end
 
-    it 'rejects invlid email formats' do
-      invalid_emails = %w[plainaddress @missinusername.com user@ user@domain..com user@.com]
+      it 'adds error for invalid email format' do
+        user.email = 'invalid_email'
+        user.valid?
 
-      invalid_emails.each do |email|
-        user.email = email
-        expect(user).not_to be_valid, "#{email.inspect} should be invalid"
+        expect(user.errors[:email]).to include('is invalid')
+      end
+
+      it 'accepts valid email format' do
+        valid_emails = %w[user@example.com test@userdomain.co.uk user+tag@example.org]
+
+        valid_emails.each do |email|
+          user.email = email
+          expect(user).to be_valid, "#{email.inspect} should be valid"
+        end
+      end
+
+      it 'rejects invalid email formats' do
+        invalid_emails = %w[plainaddress @missingusername.com user@ user@domain..com user@.com]
+
+        invalid_emails.each do |email|
+          user.email = email
+          expect(user).not_to be_valid, "#{email.inspect} should be invalid"
+        end
       end
     end
   end

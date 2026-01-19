@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  subject(:product) { build(:product, shop: shop) }
+
   let(:user) { create(:user) }
   let(:shop) { create(:shop, owner: user) }
-  subject(:product) { build(:product, shop: shop) }
+
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
@@ -13,27 +15,52 @@ RSpec.describe Product, type: :model do
     it { is_expected.to validate_numericality_of(:price_in_cents).is_greater_than(0) }
     it { is_expected.to validate_numericality_of(:stock_quantity).is_greater_than_or_equal_to(0) }
 
-    it 'rejects zero price' do
-      product.price = 0
-      expect(product).not_to be_valid
-      expect(product.errors[:price_in_cents]).to include('must be greater than 0')
+    context 'when validating zero price' do
+      it 'rejects zero price' do
+        product.price = 0.0
+        expect(product).not_to be_valid
+      end
+
+      it 'adds appropriate error message' do
+        product.price = 0.0
+        product.valid?
+
+        expect(product.errors[:price_in_cents]).to include('must be greater than 0')
+      end
     end
 
-    it 'rejects negative price' do
-      product.price = -5.99
-      expect(product).not_to be_valid
-      expect(product.errors[:price_in_cents]).to include('must be greater than 0')
+    context 'when validating negative price' do
+      it 'rejects negative price' do
+        product.price = -5.99
+        expect(product).not_to be_valid
+      end
+
+      it 'adds appropriate error message' do
+        product.price = -5.99
+        product.valid?
+        expect(product.errors[:price_in_cents]).to include('must be greater than 0')
+      end
     end
 
-    it 'allows zero stock quantity' do
-      product.stock_quantity = 0
-      expect(product).to be_valid
+    context 'when validating zero stock quantity' do
+      it 'allows zero stock quantity' do
+        product.stock_quantity = 0
+        expect(product).to be_valid
+      end
     end
 
-    it 'rejects negative stock quantity' do
-      product.stock_quantity = -10
-      expect(product).not_to be_valid
-      expect(product.errors[:stock_quantity]).to include('must be greater than or equal to 0')
+    context 'when validating positive stock quantity' do
+      it 'rejects negative stock quantity' do
+        product.stock_quantity = -10
+        expect(product).not_to be_valid
+      end
+
+      it 'adds appropriate error message' do
+        product.stock_quantity = -10
+        product.valid?
+
+        expect(product.errors[:stock_quantity]).to include('must be greater than or equal to 0')
+      end
     end
   end
 
