@@ -90,6 +90,11 @@ bin/rails generate migration MigrationName
 
 # Rails console
 bin/rails console
+
+# Sync `develop` with `main`
+git checkout develop
+git pull origin main
+git push origin develop
 ```
 
 ### Testing Environment
