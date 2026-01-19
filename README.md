@@ -2,11 +2,33 @@
 
 A Ruby on Rails application for stock management and inventory tracking.
 
+## Table of Contents
+- [About](#about)
+- [Ruby Version](#ruby-version)
+- [System Dependencies](#system-dependencies)
+- [Setup](#setup)
+  - [Initial Setup](#initial-setup)
+  - [Configuration](#configuration)
+- [How to Run the Test Suite](#how-to-run-the-test-suite)
+  - [Running Tests](#running-tests)
+  - [Code Quality](#code-quality)
+- [Development](#development)
+  - [Starting the Server](#starting-the-server)
+  - [Useful Commands](#useful-commands)
+  - [Testing Environment](#testing-environment)
+- [Core Models](#core-models)
+  - [Product](#product)
+  - [StockMovement](#stockmovement)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## About
 StockMate is designed to help businesses manage their inventory efficiently with features for:
-- Stock tracking
-- Inventory management
-- [other key features here]
+- Product management
+- Stock movement tracking (inbound, outbound, adjustments)
+- Inventory level monitoring
+- COmprehensive audit trails for stock changes
 
 ## Ruby Version
 
@@ -114,6 +136,21 @@ Deployment steps will vary depending on your hosting provider (e.g., Render, Her
 2. Ensure the production database is available and run migrations:
    ```bash
    bin/rails db:migrate RAILS_ENV=production
+   
+## Core Models
+
+### Product
+- UUID-based identification
+- NAme and description fields
+- Associated stock movements
+- Automatic cleanup of related data on deletion
+
+### StockMovement
+- Tracks all inventory changes (inbound, outbound, adjustments)
+- Links to specific products
+- Records change amounts and reasons
+- Timstamped for audit purposes
+
 ## Contributing
 1. Create a feature/fix branch from `develop`
 2. Make your changes
