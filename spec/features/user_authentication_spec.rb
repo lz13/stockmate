@@ -5,7 +5,7 @@ RSpec.describe 'User Authentication', type: :feature do
   # let(:user) { create(:user) }
   #
   # xit "allows user to sign up" do
-  #   visit visit_new_user_registration_path
+  #   visit new_user_registration_path
   #
   #   fill_in 'user_email', with: 'test@example.com'
   #   # fill_in 'user_password', with: 'password'
@@ -20,7 +20,7 @@ RSpec.describe 'User Authentication', type: :feature do
   #
   #   fill_in 'user_email', with: user.email
   #   fill_in 'user_password', with: user.password
-  #   click_butotn 'Log in'
+  #   click_button 'Log in'
   #
   #   expect(page).to have_content('Signed in successfully.')
   # end

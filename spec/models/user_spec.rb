@@ -70,12 +70,19 @@ RSpec.describe User, type: :model do
         create(:user)
         expect(described_class.admins).to be_empty
       end
+    end
+
+    context 'when there are admin users' do
+      it 'includes admin users' do
+        admin_user = create(:user, :admin)
+
+        expect(described_class.admins).to include(admin_user)
+      end
 
       it 'does not include non-admin users' do
-        admin_user = create(:user, :admin)
+        create(:user, :admin)
         regular_user = create(:user)
 
-        # expect(described_class.admins).to include(admin_user)
         expect(described_class.admins).not_to include(regular_user)
       end
     end

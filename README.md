@@ -30,7 +30,7 @@ StockMate is designed to help businesses manage their inventory efficiently with
 - Product management
 - Stock movement tracking (inbound, outbound, adjustments)
 - Inventory level monitoring
-- COmprehensive audit trails for stock changes
+- Comprehensive audit trails for stock changes
 
 ## Features
 
