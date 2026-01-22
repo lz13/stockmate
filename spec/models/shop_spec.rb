@@ -28,7 +28,7 @@ RSpec.describe Shop, type: :model do
         duplicate_shop = build(:shop, name: 'Coffee House', location: 'Downtown', owner: user)
         duplicate_shop.valid?
 
-        expect(duplicate_shop.errors[:name]).to include('has already been taken')
+        expect(duplicate_shop.errors[:name]).to include('je već zauzeto')
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe Shop, type: :model do
         shop = build(:shop, name: 'Bakery', location: long_location, owner: user)
         shop.valid?
 
-        expect(shop.errors[:location]).to include('is too long (maximum is 250 characters)')
+        expect(shop.errors[:location]).to include('je predugo (najviše 250 znakova)')
       end
     end
   end

@@ -25,7 +25,7 @@ RSpec.describe Product, type: :model do
         product.price = 0.0
         product.valid?
 
-        expect(product.errors[:price_in_cents]).to include('must be greater than 0')
+        expect(product.errors[:price_in_cents]).to include('mora biti veće od 0')
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe Product, type: :model do
       it 'adds appropriate error message' do
         product.price = -5.99
         product.valid?
-        expect(product.errors[:price_in_cents]).to include('must be greater than 0')
+        expect(product.errors[:price_in_cents]).to include('mora biti veće od 0')
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe Product, type: :model do
         product.stock_quantity = -10
         product.valid?
 
-        expect(product.errors[:stock_quantity]).to include('must be greater than or equal to 0')
+        expect(product.errors[:stock_quantity]).to include('mora biti veće ili jednako 0')
       end
     end
   end
