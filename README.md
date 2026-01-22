@@ -4,6 +4,7 @@ A Ruby on Rails application for stock management and inventory tracking.
 
 ## Table of Contents
 - [About](#about)
+- [Features](#features)
 - [Ruby Version](#ruby-version)
 - [System Dependencies](#system-dependencies)
 - [Setup](#setup)
@@ -24,11 +25,19 @@ A Ruby on Rails application for stock management and inventory tracking.
 - [License](#license)
 
 ## About
+
 StockMate is designed to help businesses manage their inventory efficiently with features for:
 - Product management
 - Stock movement tracking (inbound, outbound, adjustments)
 - Inventory level monitoring
-- COmprehensive audit trails for stock changes
+- Comprehensive audit trails for stock changes
+
+## Features
+
+- User authentication (powered by Devise)
+- Multi-language support (Croatian/English)
+- Responsive design with Tailwind CSS
+- Interactive components with Stimulus
 
 ## Ruby Version
 
