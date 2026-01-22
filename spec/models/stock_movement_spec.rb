@@ -27,7 +27,7 @@ RSpec.describe StockMovement, type: :model do
         stock_movement.change = 0
         stock_movement.valid?
 
-        expect(stock_movement.errors[:change]).to include('must be other than 0')
+        expect(stock_movement.errors[:change]).to include('mora biti različito od 0')
       end
     end
   end

@@ -29,3 +29,40 @@
 
 en:
   hello: "Hello world"
+  home:
+    hero:
+      title: "Welcome to Our Application"
+      subtitle: "Advanced inventory management for modern businesses. Simple, fast, and reliable."
+      announcement: "New features are now available! Learn more in our blog."
+      read_more: "Read more"
+      get_started: "Get Started"
+      learn_more: "Learn More"
+      log_in: "Log In"
+    nav:
+      product: "Product"
+      features: "Features"
+      marketplace: "Marketplace"
+      company: "Company"
+    footer:
+      description: "Our application helps you manage your inventory efficiently and improve business processes."
+      solutions: "Solutions"
+      support: "Support"
+      company: "Company"
+      legal: "Legal"
+      inventory_management: "Inventory Management"
+      analytics: "Analytics"
+      stores: "Stores"
+      reports: "Reports"
+      documentation: "Documentation"
+      guides: "Guides"
+      api_status: "API Status"
+      about: "About"
+      blog: "Blog"
+      jobs: "Jobs"
+      partners: "Partners"
+      privacy: "Privacy"
+      terms: "Terms of Service"
+      copyright: "© Our Application, Inc. All rights reserved."
+    language:
+      hr: "CRO"
+      en: "EN"
