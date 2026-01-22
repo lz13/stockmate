@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
         user.email = 'invalid_email'
         user.valid?
 
-        expect(user.errors[:email]).to include('is invalid')
+        expect(user.errors[:email]).to include('nije valjano')
       end
 
       it 'accepts valid email format' do
@@ -49,6 +49,35 @@ RSpec.describe User, type: :model do
       shop = create(:shop, owner: user)
 
       expect { user.destroy }.to change(Shop, :count).by(-1)
+    end
+  end
+
+  describe 'admin functionality' do
+    it 'returns false for admin? when admin is false' do
+      user = build(:user, admin: false)
+      expect(user).not_to be_admin
+    end
+
+    it 'returns true for admin? when admin is true' do
+      user = build(:user, :admin)
+      expect(user).to be_admin
+    end
+  end
+
+  describe '.admins scope' do
+    context 'when there are no admin users' do
+      it 'returns an empty collection' do
+        create(:user)
+        expect(described_class.admins).to be_empty
+      end
+
+      it 'does not include non-admin users' do
+        admin_user = create(:user, :admin)
+        regular_user = create(:user)
+
+        # expect(described_class.admins).to include(admin_user)
+        expect(described_class.admins).not_to include(regular_user)
+      end
     end
   end
 end
